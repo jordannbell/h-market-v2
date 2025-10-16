@@ -17,16 +17,24 @@ const cardElementOptions = {
  style: {
  base: {
  fontSize: '16px',
- color: '#374151',
+ color: '#1F2937',
+ fontFamily: 'system-ui, -apple-system, sans-serif',
+ fontSmoothing: 'antialiased',
  '::placeholder': {
  color: '#9CA3AF',
  },
- backgroundColor: 'transparent',
+ padding: '12px',
  },
  invalid: {
  color: '#EF4444',
+ iconColor: '#EF4444',
+ },
+ complete: {
+ color: '#059669',
+ iconColor: '#059669',
  },
  },
+ hidePostalCode: false,
 }
 
 export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFormProps) {
@@ -137,12 +145,16 @@ export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFor
  <form onSubmit={handleSubmit} className="space-y-6">
  {/* Informations de la carte */}
  <div>
- <label className="block text-sm font-medium text-gray-700 mb-3">
+ <label className="block text-sm font-medium text-gray-700 mb-3 flex items-center gap-2">
+ <FiCreditCard className="w-4 h-4 text-green-600" />
  Informations de la carte bancaire
  </label>
- <div className="border border-gray-300 rounded-lg p-4">
+ <div className="border-2 border-gray-300 rounded-xl p-4 bg-white focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-200 transition-all">
  <CardElement options={cardElementOptions} />
  </div>
+ <p className="text-xs text-gray-500 mt-2">
+ 💳 Carte de test : 4242 4242 4242 4242 | Exp : 12/34 | CVC : 123
+ </p>
  </div>
 
  {/* Message d'erreur */}

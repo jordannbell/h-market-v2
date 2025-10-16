@@ -112,32 +112,38 @@ export default function PaiementPage() {
  }
 
  return (
- <div className="min-h-screen bg-green-50">
+ <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
  <Navigation showSearch={false} />
  
- <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
  {/* Header */}
- <div className="mb-8">
+ <div className="mb-6 sm:mb-8 lg:mb-10">
  <Link
  href="/checkout"
- className="inline-flex items-center text-green-600 hover:text-green-700 mb-4"
+ className="inline-flex items-center text-green-600 hover:text-green-700 font-medium mb-4 transition-colors"
  >
  <FiArrowLeft className="w-4 h-4 mr-2" />
- Retour au checkout
+ <span className="hidden sm:inline">Retour au checkout</span>
+ <span className="sm:hidden">Retour</span>
  </Link>
- <h1 className="text-3xl font-bold text-gray-900">Paiement sécurisé</h1>
- <p className="text-gray-600 mt-2">
- Finalisez votre commande #{order.orderNumber}
+ <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 flex items-center gap-3">
+ <FiCreditCard className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" />
+ Paiement sécurisé
+ </h1>
+ <p className="text-sm sm:text-base text-gray-600 mt-2">
+ Finalisez votre commande <span className="font-semibold text-green-700">#{order.orderNumber}</span>
  </p>
  </div>
 
- <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+ <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
  {/* Formulaire de paiement */}
- <div className="lg:col-span-1">
- <div className="bg-white rounded-lg shadow-sm p-6">
- <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
- <FiCreditCard className="w-5 h-5 mr-2 text-green-600" />
- Informations de paiement
+ <div className="lg:col-span-3">
+ <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:p-8">
+ <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
+ <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+ <FiCreditCard className="w-5 h-5 text-green-600" />
+ </div>
+ <span>Informations de paiement</span>
  </h2>
  
  <Elements stripe={stripePromise}>
@@ -151,9 +157,9 @@ export default function PaiementPage() {
  </div>
 
  {/* Résumé de la commande */}
- <div className="lg:col-span-1">
- <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
- <h2 className="text-xl font-semibold text-gray-900 mb-6">Résumé de la commande</h2>
+ <div className="lg:col-span-2">
+ <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 lg:sticky lg:top-8">
+ <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-6">Résumé de la commande</h2>
  
  {/* Numéro de commande */}
  <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
@@ -166,8 +172,8 @@ export default function PaiementPage() {
  {/* Articles */}
  <div className="space-y-3 mb-6">
  {order.items.map((item: any, index: number) => (
- <div key={index} className="flex items-center space-x-3">
- <div className="w-12 h-12 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+ <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+ <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-lg overflow-hidden flex-shrink-0 shadow-sm">
  <img
  src={item.image}
  alt={item.title}
@@ -175,14 +181,16 @@ export default function PaiementPage() {
  />
  </div>
  <div className="flex-1 min-w-0">
- <h3 className="text-sm font-medium text-gray-900 truncate">
+ <h3 className="text-sm font-medium text-gray-900 line-clamp-1 mb-1">
  {item.title}
  </h3>
- <p className="text-sm text-gray-500">
- {item.quantity} × {item.price.toFixed(2)} €
+ <p className="text-xs sm:text-sm text-gray-500 flex items-center gap-1">
+ <span className="font-medium">{item.quantity}</span>
+ <span>×</span>
+ <span>{item.price.toFixed(2)} €</span>
  </p>
  </div>
- <div className="text-sm font-medium text-gray-900">
+ <div className="text-sm sm:text-base font-semibold text-green-700">
  {item.totalPrice.toFixed(2)} €
  </div>
  </div>
@@ -190,23 +198,23 @@ export default function PaiementPage() {
  </div>
 
  {/* Totaux */}
- <div className="border-t border-gray-200 pt-4 space-y-3">
- <div className="flex justify-between text-gray-600">
+ <div className="border-t-2 border-gray-200 pt-4 space-y-3">
+ <div className="flex justify-between text-sm sm:text-base text-gray-600">
  <span>Sous-total</span>
- <span>{order.totals.subtotal.toFixed(2)} €</span>
+ <span className="font-medium">{order.totals.subtotal.toFixed(2)} €</span>
  </div>
- <div className="flex justify-between text-gray-600">
+ <div className="flex justify-between text-sm sm:text-base text-gray-600">
  <span>Livraison</span>
- <span>{order.totals.deliveryFee.toFixed(2)} €</span>
+ <span className="font-medium text-green-600">{order.totals.deliveryFee.toFixed(2)} €</span>
  </div>
- <div className="flex justify-between text-gray-600">
- <span>TVA (20%)</span>
- <span>{order.totals.taxes.toFixed(2)} €</span>
+ <div className="flex justify-between text-sm sm:text-base text-gray-600">
+ <span>TVA (5,5%)</span>
+ <span className="font-medium">{order.totals.taxes.toFixed(2)} €</span>
  </div>
- <div className="border-t border-gray-200 pt-3">
- <div className="flex justify-between text-lg font-bold text-gray-900">
- <span>Total</span>
- <span>{order.totals.total.toFixed(2)} €</span>
+ <div className="border-t-2 border-gray-300 pt-4 mt-4">
+ <div className="flex justify-between items-center">
+ <span className="text-base sm:text-lg font-bold text-gray-900">Total</span>
+ <span className="text-xl sm:text-2xl font-bold text-green-700">{order.totals.total.toFixed(2)} €</span>
  </div>
  </div>
  </div>
