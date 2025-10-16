@@ -169,52 +169,62 @@ export default function LivreurCommandesPage() {
  }
 
  const updateDeliveryStatus = async (orderId: string, newStatus: string) => {
- if (!orderId || orderId === 'undefined') {
- console.error('❌ Erreur: ID de commande invalide', orderId)
- toast.error('Erreur: ID de commande invalide')
- return
- }
- 
- setUpdatingStatus(orderId)
+   if (!orderId || orderId === 'undefined') {
+     console.error('❌ Erreur: ID de commande invalide', orderId)
+     toast.error('Erreur: ID de commande invalide')
+     return
+   }
+   
+   setUpdatingStatus(orderId)
 
- try {
- const response = await fetch(`/api/orders/${orderId}/tracking`, {
- method: 'POST',
- headers: {
- 'Content-Type': 'application/json',
- 'Authorization': `Bearer ${token}`
- },
- body: JSON.stringify({
- status: newStatus,
- notes: `Statut mis à jour vers: ${newStatus}`
- })
- })
+   try {
+     const response = await fetch(`/api/orders/${orderId}/tracking`, {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json',
+         'Authorization': `Bearer ${token}`
+       },
+       body: JSON.stringify({
+         status: newStatus,
+         notes: `Statut mis à jour vers: ${newStatus}`
+       })
+     })
 
- const data = await response.json()
+     const data = await response.json()
 
- if (response.ok) {
- toast.success('Statut mis à jour avec succès!')
- // Mettre à jour immédiatement la commande sélectionnée
- if (selectedOrder) {
- setSelectedOrder({
- ...selectedOrder,
- delivery: {
- ...selectedOrder.delivery,
- status: newStatus
- }
- })
- }
- // Ne pas rafraîchir automatiquement pour éviter de fermer le modal
- // Le modal se met à jour déjà avec setSelectedOrder
- } else {
- toast.error(data.error || 'Erreur lors de la mise à jour du statut')
- }
- } catch (error) {
- console.error('Erreur lors de la mise à jour du statut:', error)
- toast.error('Erreur lors de la mise à jour du statut')
- } finally {
- setUpdatingStatus(null)
- }
+     if (response.ok) {
+       if (newStatus === 'delivered') {
+         toast.success('🎉 Livraison terminée ! La commande disparaîtra de votre liste.')
+       } else {
+         toast.success('Statut mis à jour avec succès!')
+       }
+       
+       // Mettre à jour immédiatement la commande sélectionnée
+       if (selectedOrder) {
+         setSelectedOrder({
+           ...selectedOrder,
+           delivery: {
+             ...selectedOrder.delivery,
+             status: newStatus
+           }
+         })
+       }
+       
+       // Si la commande est livrée, rafraîchir la liste pour la faire disparaître
+       if (newStatus === 'delivered') {
+         setTimeout(() => {
+           fetchMyDeliveries()
+         }, 3000) // Rafraîchir après 3 secondes
+       }
+     } else {
+       toast.error(data.error || 'Erreur lors de la mise à jour du statut')
+     }
+   } catch (error) {
+     console.error('Erreur lors de la mise à jour du statut:', error)
+     toast.error('Erreur lors de la mise à jour du statut')
+   } finally {
+     setUpdatingStatus(null)
+   }
  }
 
  const openModal = (order: MyDelivery) => {

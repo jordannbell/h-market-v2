@@ -68,18 +68,25 @@ export default function DeliveryProgressModal({
  const progress = ((currentStepIndex) / (DELIVERY_STEPS.length - 1)) * 100
 
  const handleNextStep = async () => {
- console.log(' Action déclenchée - Statut actuel:', currentStatus, 'Action:', currentStep.action)
- 
- if (!order._id) {
- console.error('❌ Erreur: ID de commande manquant', order)
- return
- }
- 
- if (currentStatus === 'pending') {
- await onAccept(order._id)
- } else if (currentStep.action) {
- await onUpdateStatus(order._id, currentStep.action)
- }
+   console.log(' Action déclenchée - Statut actuel:', currentStatus, 'Action:', currentStep.action)
+   
+   if (!order._id) {
+     console.error('❌ Erreur: ID de commande manquant', order)
+     return
+   }
+   
+   if (currentStatus === 'pending') {
+     await onAccept(order._id)
+   } else if (currentStep.action) {
+     await onUpdateStatus(order._id, currentStep.action)
+     
+     // Si c'est la dernière étape (livraison), fermer le modal après un délai
+     if (currentStep.action === 'delivered') {
+       setTimeout(() => {
+         onClose()
+       }, 2000) // Fermer après 2 secondes pour laisser le temps de voir la confirmation
+     }
+   }
  }
 
  const isCompleted = currentStatus === 'delivered'
@@ -224,7 +231,7 @@ export default function DeliveryProgressModal({
  {currentStatus === 'pending' && 'Accepter la commande'}
  {currentStatus === 'assigned' && 'Marquer comme récupérée'}
  {currentStatus === 'picked_up' && 'Démarrer la livraison'}
- {currentStatus === 'in_transit' && 'Confirmer la livraison'}
+ {currentStatus === 'in_transit' && '✅ Marquer comme LIVRÉE'}
  </span>
  </>
  )}
