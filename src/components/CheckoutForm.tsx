@@ -51,13 +51,16 @@ export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFor
  useEffect(() => {
    console.log('Stripe loaded:', !!stripe)
    console.log('Elements loaded:', !!elements)
+   console.log('Stripe publishable key:', process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ? 'Present' : 'Missing')
  }, [stripe, elements])
 
  const handleSubmit = async (event: React.FormEvent) => {
  event.preventDefault()
 
  if (!stripe || !elements) {
- return
+   console.error('Stripe ou Elements non chargés')
+   setError('Stripe non initialisé. Veuillez recharger la page.')
+   return
  }
 
  setIsLoading(true)

@@ -13,7 +13,13 @@ import { FiAlertCircle, FiArrowLeft, FiCreditCard } from 'react-icons/fi'
 
 
 // Charger Stripe (clé publique)
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+const stripePublishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || process.env.STRIPE_PUBLISHABLE_KEY
+
+if (!stripePublishableKey) {
+  console.error('STRIPE_PUBLISHABLE_KEY manquante dans les variables d\'environnement')
+}
+
+const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : null
 
 export default function PaiementPage() {
  const router = useRouter()
@@ -146,6 +152,7 @@ export default function PaiementPage() {
  <span>Informations de paiement</span>
  </h2>
  
+ {stripePromise ? (
  <Elements stripe={stripePromise}>
  <CheckoutForm
  amount={order.totals.total}
@@ -153,6 +160,11 @@ export default function PaiementPage() {
  onSuccess={handlePaymentSuccess}
  />
  </Elements>
+ ) : (
+ <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+ <p className="text-red-800">Erreur : Configuration Stripe manquante. Veuillez contacter le support.</p>
+ </div>
+ )}
  </div>
  </div>
 
