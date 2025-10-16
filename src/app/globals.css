@@ -69,23 +69,52 @@ button, a {
 
 /* Stripe Elements custom styling */
 .StripeElement {
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  transition: border-color 0.2s ease;
+  padding: 14px 16px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e5e7eb !important;
+  transition: border-color 0.2s ease !important;
+  background: white !important;
+  color: #1F2937 !important;
+  font-size: 16px !important;
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+.StripeElement * {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
 }
 
 .StripeElement--focus {
   border-color: var(--primary-green) !important;
-  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1) !important;
+  outline: none !important;
 }
 
 .StripeElement--invalid {
-  border-color: #ef4444;
+  border-color: #ef4444 !important;
 }
 
 .StripeElement--complete {
-  border-color: #10b981;
+  border-color: #10b981 !important;
+}
+
+/* Forcer l'activation du CardElement */
+#stripe-card-element .StripeElement {
+  background: white !important;
+  color: #1F2937 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+}
+
+#stripe-card-element input {
+  pointer-events: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  background: white !important;
+  color: #1F2937 !important;
 }
 
 /* Amélioration des scrollbars */

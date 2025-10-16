@@ -20,6 +20,7 @@ const cardElementOptions = {
  color: '#1F2937',
  fontFamily: 'system-ui, -apple-system, sans-serif',
  fontSmoothing: 'antialiased',
+ lineHeight: '1.5',
  '::placeholder': {
  color: '#9CA3AF',
  },
@@ -35,6 +36,7 @@ const cardElementOptions = {
  },
  },
  hidePostalCode: false,
+ disabled: false,
 }
 
 export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFormProps) {
@@ -44,6 +46,12 @@ export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFor
  
  const [isLoading, setIsLoading] = useState(false)
  const [error, setError] = useState('')
+
+ // Debug: Vérifier que Stripe est bien chargé
+ useEffect(() => {
+   console.log('Stripe loaded:', !!stripe)
+   console.log('Elements loaded:', !!elements)
+ }, [stripe, elements])
 
  const handleSubmit = async (event: React.FormEvent) => {
  event.preventDefault()
@@ -149,8 +157,11 @@ export default function CheckoutForm({ amount, orderId, onSuccess }: CheckoutFor
  <FiCreditCard className="w-4 h-4 text-green-600" />
  Informations de la carte bancaire
  </label>
- <div className="border-2 border-gray-300 rounded-xl p-4 bg-white focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-200 transition-all">
- <CardElement options={cardElementOptions} />
+ <div className="border-2 border-gray-300 rounded-xl p-4 bg-white focus-within:border-green-500 focus-within:ring-2 focus-within:ring-green-200 transition-all" id="stripe-card-element">
+ <CardElement 
+   options={cardElementOptions}
+   className="w-full"
+ />
  </div>
  <p className="text-xs text-gray-500 mt-2">
  💳 Carte de test : 4242 4242 4242 4242 | Exp : 12/34 | CVC : 123
