@@ -1,7 +1,81 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const User = require('../src/models/User')
-const Order = require('../src/models/Order')
+
+// Définir les schémas directement dans le script
+const userSchema = new mongoose.Schema({
+  name: {
+    first: { type: String, required: true },
+    last: { type: String, required: true }
+  },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String, required: true },
+  password: { type: String, required: true },
+  role: { type: String, enum: ['client', 'livreur', 'admin'], default: 'client' },
+  isVerified: { type: Boolean, default: false },
+  vehicleType: { type: String },
+  deliveryZone: { type: String },
+  isAvailable: { type: Boolean, default: true },
+  licensePlate: { type: String },
+  address: {
+    street: String,
+    city: String,
+    postalCode: String,
+    country: String
+  }
+}, { timestamps: true })
+
+const orderSchema = new mongoose.Schema({
+  orderNumber: { type: String, required: true, unique: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  items: [{
+    productId: mongoose.Schema.Types.ObjectId,
+    title: String,
+    slug: String,
+    image: String,
+    price: Number,
+    quantity: Number,
+    totalPrice: Number
+  }],
+  totals: {
+    subtotal: Number,
+    deliveryFee: Number,
+    taxes: Number,
+    discounts: Number,
+    total: Number
+  },
+  payment: {
+    method: String,
+    status: String,
+    paymentIntentId: String,
+    amount: Number,
+    currency: String,
+    paidAt: Date
+  },
+  address: {
+    street: String,
+    city: String,
+    postalCode: String,
+    country: String
+  },
+  delivery: {
+    mode: String,
+    slot: String,
+    scheduledAt: Date,
+    status: String,
+    assignedDriverId: mongoose.Schema.Types.ObjectId,
+    deliveryCode: String,
+    estimatedDeliveryTime: Date
+  },
+  status: String,
+  orderProgress: {
+    step: String,
+    currentStep: Number,
+    totalSteps: Number
+  }
+}, { timestamps: true })
+
+const User = mongoose.model('User', userSchema)
+const Order = mongoose.model('Order', orderSchema)
 
 async function createTestOrderWithLivreur() {
   try {
