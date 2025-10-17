@@ -261,13 +261,13 @@ export default function HomePage() {
 
  {/* Hero Section - Darty Style */}
  <section className="bg-white">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
  {/* Main Hero Banner - Darty Style */}
- <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+ <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-8">
  {/* Left Column - Large Banner with Background Image */}
  <div className="lg:col-span-2">
  <div 
- className="bg-cover bg-center bg-no-repeat rounded-2xl p-8 text-white relative overflow-hidden min-h-[400px] flex items-center"
+ className="bg-cover bg-center bg-no-repeat rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden min-h-[300px] sm:min-h-[400px] flex items-center"
  style={{
  backgroundImage: 'url("https://i.ibb.co/bRdqfwnG/2150812801.jpg")'
  }}
@@ -277,64 +277,64 @@ export default function HomePage() {
  
  {/* Product Info */}
  <div className="relative z-10 w-full">
- <div className="flex items-center space-x-2 mb-4">
- <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
+ <div className="flex items-center space-x-2 mb-3 sm:mb-4">
+ <div className="w-6 h-6 sm:w-8 sm:h-8 bg-yellow-400 rounded-full flex items-center justify-center">
  <span className="text-green-800 font-bold"></span>
  </div>
- <span className="text-2xl font-bold text-yellow-300">ATTIEKÉ PREMIUM</span>
+ <span className="text-lg sm:text-2xl font-bold text-yellow-300">ATTIEKÉ PREMIUM</span>
  </div>
- <h1 className="text-4xl md:text-5xl font-black mb-2 drop-shadow-lg">
+ <h1 className="text-2xl sm:text-4xl md:text-5xl font-black mb-2 drop-shadow-lg">
  Semoule de manioc
  </h1>
- <p className="text-xl text-green-100 mb-6 drop-shadow-md">
+ <p className="text-base sm:text-xl text-green-100 mb-4 sm:mb-6 drop-shadow-md">
  Disponible en livraison express
  </p>
  
  {/* CTA Button */}
  <Link
  href="/produits/attieke"
- className="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold px-6 py-3 rounded-xl transition-colors duration-300 shadow-lg"
+ className="inline-block bg-yellow-500 hover:bg-yellow-600 text-green-900 font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition-colors duration-300 shadow-lg text-sm sm:text-base"
  >
  Commander maintenant
  </Link>
  </div>
  
  {/* Decorative Elements */}
- <div className="absolute bottom-0 right-0 w-64 h-64 bg-yellow-400/20 rounded-full -translate-y-16 translate-x-16"></div>
+ <div className="absolute bottom-0 right-0 w-32 h-32 sm:w-64 sm:h-64 bg-yellow-400/20 rounded-full -translate-y-16 translate-x-16"></div>
  </div>
  </div>
 
  {/* Right Column - Promotional Details */}
  <div className="lg:col-span-1">
- <div className="bg-white border-2 border-green-800 rounded-2xl p-6 h-full">
- <div className="text-center mb-6">
- <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-4">
+ <div className="bg-white border-2 border-green-800 rounded-2xl p-4 sm:p-6 h-full">
+ <div className="text-center mb-4 sm:mb-6">
+ <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-bold mb-3 sm:mb-4">
  NOUVEAUTÉ
  </div>
- <div className="text-3xl font-bold text-green-800 mb-2">
+ <div className="text-2xl sm:text-3xl font-bold text-green-800 mb-2">
  À PARTIR DE <span className="text-red-500">4,99€</span>
  </div>
- <div className="text-gray-500 text-sm">
+ <div className="text-gray-500 text-xs sm:text-sm">
  au lieu de 6,99€
  </div>
  </div>
  
- <div className="space-y-4 mb-6">
+ <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
  <div className="flex items-start space-x-3">
- <span className="text-green-700 font-bold"></span>
- <span className="text-sm text-gray-700">
+ <span className="text-green-700 font-bold text-lg">✓</span>
+ <span className="text-xs sm:text-sm text-gray-700">
  Livraison gratuite dès 30€ d'achat
  </span>
  </div>
  <div className="flex items-start space-x-3">
- <span className="text-green-700 font-bold"></span>
- <span className="text-sm text-gray-700">
+ <span className="text-green-700 font-bold text-lg">✓</span>
+ <span className="text-xs sm:text-sm text-gray-700">
  Qualité garantie 100% authentique
  </span>
  </div>
  <div className="flex items-start space-x-3">
- <span className="text-green-700 font-bold"></span>
- <span className="text-sm text-gray-700">
+ <span className="text-green-700 font-bold text-lg">✓</span>
+ <span className="text-xs sm:text-sm text-gray-700">
  Produit importé directement d'Afrique
  </span>
  </div>
@@ -342,7 +342,7 @@ export default function HomePage() {
  
  <Link
  href="/produits"
- className="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl text-center transition-colors duration-300"
+ className="block w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 sm:py-3 rounded-xl text-center transition-colors duration-300 text-sm sm:text-base"
  >
  JE COMMANDE
  </Link>
@@ -351,12 +351,12 @@ export default function HomePage() {
  </div>
 
  {/* Secondary Product Links - Darty Style */}
- <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+ <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-8">
  <Link
  href="/produits/plantain"
- className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
+ className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
  >
- <div className="w-full h-32 lg:h-40 mb-4 rounded-xl overflow-hidden relative">
+ <div className="w-full h-28 sm:h-32 lg:h-40 mb-3 sm:mb-4 rounded-xl overflow-hidden relative">
  <img 
  src="https://i.ibb.co/1GHWtxwV/77581.jpg" 
  alt="Plantain Bio"
@@ -364,15 +364,15 @@ export default function HomePage() {
  />
  <div className="absolute inset-0 bg-green-500 opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Plantain Bio</h3>
- <p className="text-sm text-gray-600">Banane plantain fraîche</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Plantain Bio</h3>
+ <p className="text-xs sm:text-sm text-gray-600">Banane plantain fraîche</p>
  </Link>
  
  <Link
  href="/produits/epices"
- className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
+ className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
  >
- <div className="w-full h-32 lg:h-40 mb-4 rounded-xl overflow-hidden relative">
+ <div className="w-full h-28 sm:h-32 lg:h-40 mb-3 sm:mb-4 rounded-xl overflow-hidden relative">
  <img 
  src="https://i.ibb.co/8gDS5szB/3306.jpg" 
  alt="Épices du Sénégal"
@@ -380,15 +380,15 @@ export default function HomePage() {
  />
  <div className="absolute inset-0 bg-red-500 opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Épices du Sénégal</h3>
- <p className="text-sm text-gray-600">Mélange d'épices authentiques</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Épices du Sénégal</h3>
+ <p className="text-xs sm:text-sm text-gray-600">Mélange d'épices authentiques</p>
  </Link>
  
  <Link
  href="/produits/mafe"
- className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 text-center group"
+ className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300 text-center group sm:col-span-2 md:col-span-1"
  >
- <div className="w-full h-32 lg:h-40 mb-4 rounded-xl overflow-hidden relative">
+ <div className="w-full h-28 sm:h-32 lg:h-40 mb-3 sm:mb-4 rounded-xl overflow-hidden relative">
  <img 
  src="https://i.ibb.co/bRdqfwnG/2150812801.jpg" 
  alt="Sauce Mafé"
@@ -396,62 +396,62 @@ export default function HomePage() {
  />
  <div className="absolute inset-0 bg-orange-500 opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Sauce Mafé</h3>
- <p className="text-sm text-gray-600">Sauce d'arachide malienne</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Sauce Mafé</h3>
+ <p className="text-xs sm:text-sm text-gray-600">Sauce d'arachide malienne</p>
  </Link>
  </div>
 
  {/* Flash Offers Section - Darty Style */}
- <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
- <div className="bg-red-700 rounded-2xl p-6 text-white relative overflow-hidden">
+ <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+ <div className="bg-red-700 rounded-2xl p-4 sm:p-6 text-white relative overflow-hidden min-h-[180px]">
  <div className="absolute top-2 right-2 bg-white/20 rounded-full px-2 py-1 text-xs font-bold">
  DURÉE LIMITÉE
  </div>
  <div className="relative z-10">
- <div className="text-lg font-bold mb-2">SUPER OFFRE FLASH</div>
- <div className="text-2xl font-black mb-4">Sur les produits frais</div>
- <div className="text-sm mb-4">
+ <div className="text-base sm:text-lg font-bold mb-2">SUPER OFFRE FLASH</div>
+ <div className="text-xl sm:text-2xl font-black mb-3 sm:mb-4">Sur les produits frais</div>
+ <div className="text-xs sm:text-sm mb-3 sm:mb-4">
  Attieké, plantain, légumes africains
  </div>
  <Link
  href="/produits/frais"
- className="inline-block bg-white text-red-700 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+ className="inline-block bg-white text-red-700 font-bold px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-xs sm:text-sm"
  >
  Découvrir
  </Link>
  </div>
- <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+ <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
  </div>
 
- <div className="bg-red-700 rounded-2xl p-6 text-white relative overflow-hidden">
+ <div className="bg-red-700 rounded-2xl p-4 sm:p-6 text-white relative overflow-hidden min-h-[180px]">
  <div className="absolute top-2 right-2 bg-white/20 rounded-full px-2 py-1 text-xs font-bold">
  DURÉE LIMITÉE
  </div>
  <div className="relative z-10">
- <div className="text-lg font-bold mb-2">SUPER OFFRE FLASH</div>
- <div className="text-2xl font-black mb-4">sur une sélection d'épices</div>
- <div className="text-sm mb-4">
+ <div className="text-base sm:text-lg font-bold mb-2">SUPER OFFRE FLASH</div>
+ <div className="text-xl sm:text-2xl font-black mb-3 sm:mb-4">sur une sélection d'épices</div>
+ <div className="text-xs sm:text-sm mb-3 sm:mb-4">
  Épices, condiments, sauces africaines
  </div>
  <Link
  href="/produits/epices"
- className="inline-block bg-white text-red-700 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+ className="inline-block bg-white text-red-700 font-bold px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors duration-300 text-xs sm:text-sm"
  >
  Découvrir
  </Link>
  </div>
- <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
+ <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full -translate-y-8 translate-x-8"></div>
  </div>
  </div>
  </div>
  </section>
 
  {/* Categories Section - Carousel Style */}
- <section className="bg-gray-50 py-12">
+ <section className="bg-gray-50 py-8 sm:py-12">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div className="text-center mb-8">
- <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos Catégories</h2>
- <p className="text-gray-600">Découvrez tous nos produits africains authentiques</p>
+ <div className="text-center mb-6 sm:mb-8">
+ <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Nos Catégories</h2>
+ <p className="text-sm sm:text-base text-gray-600">Découvrez tous nos produits africains authentiques</p>
  </div>
  
  <div className="relative">
@@ -523,51 +523,51 @@ export default function HomePage() {
  </section>
 
  {/* Features Section - Darty Style */}
- <section className="py-16 bg-white">
+ <section className="py-8 sm:py-12 lg:py-16 bg-white">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
- <div className="text-center mb-12">
- <h2 className="text-3xl font-bold text-gray-900 mb-4">Nos Services</h2>
- <p className="text-gray-600">Votre satisfaction est notre priorité</p>
+ <div className="text-center mb-8 sm:mb-12">
+ <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">Nos Services</h2>
+ <p className="text-sm sm:text-base text-gray-600">Votre satisfaction est notre priorité</p>
  </div>
 
- <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+ <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
  <div className="text-center">
- <div className="w-16 h-16 bg-green-700 rounded-xl flex items-center justify-center mx-auto mb-4">
- <FiTruck className="w-8 h-8 text-white" />
+ <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-700 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+ <FiTruck className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Livraison 24h</h3>
- <p className="text-sm text-gray-600">En Île-de-France</p>
- </div>
-
- <div className="text-center">
- <div className="w-16 h-16 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-4">
- <FiShield className="w-8 h-8 text-white" />
- </div>
- <h3 className="font-bold text-gray-900 mb-2">Qualité Garantie</h3>
- <p className="text-sm text-gray-600">100% authentique</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Livraison 24h</h3>
+ <p className="text-xs sm:text-sm text-gray-600">En Île-de-France</p>
  </div>
 
  <div className="text-center">
- <div className="w-16 h-16 bg-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-4">
- <FiUsers className="w-8 h-8 text-white" />
+ <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+ <FiShield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Support Client</h3>
- <p className="text-sm text-gray-600">7j/7 disponible</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Qualité Garantie</h3>
+ <p className="text-xs sm:text-sm text-gray-600">100% authentique</p>
  </div>
 
  <div className="text-center">
- <div className="w-16 h-16 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
- <FiHeart className="w-8 h-8 text-white" />
+ <div className="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-500 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+ <FiUsers className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
  </div>
- <h3 className="font-bold text-gray-900 mb-2">Satisfaction</h3>
- <p className="text-sm text-gray-600">4.9/5 étoiles</p>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Support Client</h3>
+ <p className="text-xs sm:text-sm text-gray-600">7j/7 disponible</p>
+ </div>
+
+ <div className="text-center">
+ <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+ <FiHeart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+ </div>
+ <h3 className="font-bold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">Satisfaction</h3>
+ <p className="text-xs sm:text-sm text-gray-600">4.9/5 étoiles</p>
  </div>
  </div>
  </div>
  </section>
 
  {/* Categories Preview - Modern Grid */}
- <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+ <section className="py-8 sm:py-12 lg:py-16 xl:py-24 bg-white relative overflow-hidden">
  {/* Background Pattern */}
  <div className="absolute inset-0 opacity-5">
  <div className="absolute top-20 left-10 w-64 h-64 bg-green-500 rounded-full blur-3xl"></div>
@@ -576,16 +576,16 @@ export default function HomePage() {
 
  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  {/* Header */}
- <div className="text-center mb-16">
- <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-yellow-100 text-green-800 rounded-full px-4 py-2 text-sm font-medium mb-6">
- <span></span>
+ <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+ <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-100 to-yellow-100 text-green-800 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+ <span>🌍</span>
  <span>Nos catégories</span>
  </div>
- <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+ <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
  Explorez nos 
  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-yellow-600"> saveurs authentiques</span>
  </h2>
- <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+ <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
  Des épices parfumées aux céréales traditionnelles, découvrez toute la richesse culinaire africaine
  </p>
  </div>
@@ -686,24 +686,24 @@ export default function HomePage() {
  </section>
 
  {/* Testimonials Section - Professional */}
- <section className="py-16 lg:py-24 bg-gray-50">
+ <section className="py-8 sm:py-12 lg:py-16 xl:py-24 bg-gray-50">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  {/* Header */}
- <div className="text-center mb-16">
- <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 rounded-full px-4 py-2 text-sm font-medium mb-6">
- <FiMessageSquare className="w-5 h-5" />
+ <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+ <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+ <FiMessageSquare className="w-4 h-4 sm:w-5 sm:h-5" />
  <span>Témoignages clients</span>
  </div>
- <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+ <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
  Ce que disent nos clients satisfaits
  </h2>
- <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+ <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
  Plus de 2000 clients nous font confiance pour leurs produits africains authentiques
  </p>
  </div>
 
  {/* Testimonials Grid */}
- <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
  {[
  {
  name: "Marie K.",
@@ -773,31 +773,31 @@ export default function HomePage() {
  </section>
 
  {/* Featured Products - Modern Showcase */}
- <section className="py-16 lg:py-24 bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50">
+ <section className="py-8 sm:py-12 lg:py-16 xl:py-24 bg-gradient-to-br from-green-50 via-yellow-50 to-orange-50">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  {/* Header */}
- <div className="text-center mb-16">
- <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 rounded-full px-4 py-2 text-sm font-medium mb-6">
+ <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+ <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
  <FiStar className="w-4 h-4" />
  <span>Nos best-sellers</span>
  </div>
- <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+ <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
  Les 
  <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-orange-600"> coups de cœur</span> 
- <br />de nos clients
+ <br className="hidden sm:block" />de nos clients
  </h2>
- <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+ <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
  Attieké, plantain, mafé... Découvrez les saveurs qui font le succès de H-Market
  </p>
  </div>
 
  {loading ? (
- <div className="text-center py-12">
- <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
- <p className="mt-4 text-gray-600">Chargement des produits...</p>
+ <div className="text-center py-8 sm:py-12">
+ <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-green-600 mx-auto"></div>
+ <p className="mt-4 text-sm sm:text-base text-gray-600">Chargement des produits...</p>
  </div>
  ) : products.length > 0 ? (
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
  {products.map((product) => (
  <div
  key={product._id}
@@ -941,13 +941,13 @@ export default function HomePage() {
  </div>
  )}
 
- <div className="text-center mt-8">
+ <div className="text-center mt-6 sm:mt-8">
  <Link
  href="/produits"
- className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2"
+ className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold transition-colors inline-flex items-center space-x-2 text-sm sm:text-base"
  >
  <span>Voir tous les produits</span>
- <FiArrowRight className="w-5 h-5" />
+ <FiArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
  </Link>
  </div>
  </div>
@@ -961,40 +961,40 @@ export default function HomePage() {
  <div className="absolute bottom-20 right-20 w-40 h-40 bg-yellow-500 rounded-full blur-3xl"></div>
  </div>
 
- <div className="relative py-16 lg:py-20">
+ <div className="relative py-8 sm:py-12 lg:py-16 xl:py-20">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  {/* Top Section */}
- <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-8 sm:mb-12">
  {/* Brand & Newsletter */}
  <div>
- <div className="flex items-center space-x-4 mb-6">
- <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-xl">
- <span className="text-white font-bold text-2xl">H</span>
+ <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+ <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-xl flex-shrink-0">
+ <span className="text-white font-bold text-xl sm:text-2xl">H</span>
  </div>
  <div>
- <h3 className="text-3xl font-bold">H-Market</h3>
- <p className="text-green-300 font-medium">L'Afrique authentique à votre table</p>
+ <h3 className="text-2xl sm:text-3xl font-bold">H-Market</h3>
+ <p className="text-green-300 font-medium text-sm sm:text-base">L'Afrique authentique à votre table</p>
  </div>
  </div>
- <p className="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg">
+ <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">
  Votre marketplace de confiance pour découvrir les saveurs authentiques d'Afrique. 
  Attieké, plantain, épices... Tout ce dont vous avez besoin livré en 24-48h.
  </p>
  
  {/* Newsletter */}
- <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
- <h4 className="font-bold text-xl mb-3 text-yellow-300 flex items-center">
- <FiMail className="w-5 h-5 mr-2" /> Newsletter
+ <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20">
+ <h4 className="font-bold text-lg sm:text-xl mb-2 sm:mb-3 text-yellow-300 flex items-center">
+ <FiMail className="w-4 h-4 sm:w-5 sm:h-5 mr-2" /> Newsletter
  </h4>
- <p className="text-gray-300 mb-4">Recevez nos offres exclusives et nouveautés</p>
- <form onSubmit={handleNewsletterSubmit} className="flex gap-3">
+ <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">Recevez nos offres exclusives et nouveautés</p>
+ <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2 sm:gap-3">
  {isClient && (
  <input
  type="email"
  placeholder="votre.email@exemple.com"
  value={newsletterEmail}
  onChange={(e) => setNewsletterEmail(e.target.value)}
- className="flex-1 bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300"
+ className="flex-1 bg-white/20 border border-white/30 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300 text-sm sm:text-base"
  required
  />
  )}
@@ -1002,14 +1002,14 @@ export default function HomePage() {
  <input
  type="email"
  placeholder="votre.email@exemple.com"
- className="flex-1 bg-white/20 border border-white/30 rounded-xl px-4 py-3 text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300"
+ className="flex-1 bg-white/20 border border-white/30 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-300 focus:outline-none focus:border-yellow-300 text-sm sm:text-base"
  required
  readOnly
  />
  )}
  <button 
  type="submit"
- className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-xl"
+ className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-bold transition-all duration-300 shadow-xl text-sm sm:text-base"
  >
  S'abonner
  </button>
@@ -1018,7 +1018,7 @@ export default function HomePage() {
  </div>
 
  {/* Links Grid */}
- <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+ <div className="grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
  {/* Navigation */}
  <div>
  <h4 className="font-bold text-lg mb-6 text-yellow-300">Navigation</h4>
@@ -1067,22 +1067,22 @@ export default function HomePage() {
  </div>
 
  {/* Bottom Section */}
- <div className="border-t border-white/20 pt-8">
+ <div className="border-t border-white/20 pt-6 sm:pt-8">
  <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
- <div className="text-gray-400 text-center md:text-left">
- <p>&copy; 2024 H-Market. Tous droits réservés. Fait avec ️ pour l'Afrique.</p>
+ <div className="text-gray-400 text-center md:text-left text-xs sm:text-sm">
+ <p>&copy; 2024 H-Market. Tous droits réservés. Fait avec ❤️ pour l'Afrique.</p>
  </div>
- <div className="flex items-center space-x-6">
- <span className="text-gray-400">Suivez-nous :</span>
- <div className="flex space-x-4">
- <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
- <FiUsers className="w-5 h-5" />
+ <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6">
+ <span className="text-gray-400 text-sm">Suivez-nous :</span>
+ <div className="flex space-x-3 sm:space-x-4">
+ <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+ <FiUsers className="w-4 h-4 sm:w-5 sm:h-5" />
  </a>
- <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
- <FiCamera className="w-5 h-5" />
+ <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+ <FiCamera className="w-4 h-4 sm:w-5 sm:h-5" />
  </a>
- <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
- <FiTwitter className="w-5 h-5" />
+ <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors">
+ <FiTwitter className="w-4 h-4 sm:w-5 sm:h-5" />
  </a>
  </div>
  </div>

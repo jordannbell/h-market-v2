@@ -35,6 +35,7 @@ function ProductsPageContent() {
  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '')
  const [searchQuery, setSearchQuery] = useState('')
  const [sortBy, setSortBy] = useState('newest')
+ const [showFilters, setShowFilters] = useState(false)
 
  useEffect(() => {
  fetchProducts()
@@ -90,12 +91,12 @@ function ProductsPageContent() {
 
  {/* Page Title */}
  <div className="bg-white border-b border-gray-200">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
  <div className="text-center">
- <h1 className="text-3xl font-bold text-gray-900 mb-2">
+ <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
  Nos Produits
  </h1>
- <p className="text-lg text-gray-600">
+ <p className="text-sm sm:text-base lg:text-lg text-gray-600">
  Découvrez notre sélection de produits africains authentiques
  </p>
  </div>
@@ -103,52 +104,66 @@ function ProductsPageContent() {
  </div>
 
  {/* Main Content */}
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
- <div className="flex flex-col lg:flex-row gap-8">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+ {/* Bouton filtres mobile */}
+ <div className="lg:hidden mb-4">
+ <button
+ onClick={() => setShowFilters(!showFilters)}
+ className="w-full bg-white rounded-xl shadow-md px-4 py-3 flex items-center justify-center space-x-2 font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+ >
+ <FiFilter className="w-5 h-5" />
+ <span>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'}</span>
+ </button>
+ </div>
+
+ <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8">
  {/* Sidebar */}
- <div className="lg:w-80 flex-shrink-0">
- <div className="bg-white rounded-xl shadow-lg p-6 sticky top-8">
- <div className="flex items-center space-x-3 mb-8">
- <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center">
- <FiFilter className="w-5 h-5 text-white" />
+ <div className={`lg:w-80 flex-shrink-0 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+ <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:sticky lg:top-8">
+ <div className="flex items-center space-x-2 sm:space-x-3 mb-6 sm:mb-8">
+ <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+ <FiFilter className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
  </div>
  <div>
- <h2 className="text-xl font-bold text-gray-900">Filtres</h2>
- <p className="text-sm text-gray-500">Affinez votre recherche</p>
+ <h2 className="text-lg sm:text-xl font-bold text-gray-900">Filtres</h2>
+ <p className="text-xs sm:text-sm text-gray-500">Affinez votre recherche</p>
  </div>
  </div>
 
  {/* Categories */}
- <div className="mb-8">
- <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
- <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+ <div className="mb-6 sm:mb-8">
+ <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+ <span className="w-2 h-2 bg-green-500 rounded-full mr-2 sm:mr-3"></span>
  Catégories
  </h3>
- <div className="space-y-3">
+ <div className="space-y-2 sm:space-y-3">
  {categories.map((category) => (
  <button
  key={category.name}
- onClick={() => handleCategoryClick(category.name)}
- className={`w-full flex items-center space-x-4 p-4 rounded-xl text-left transition-all duration-200 ${
+ onClick={() => {
+ handleCategoryClick(category.name)
+ setShowFilters(false)
+ }}
+ className={`w-full flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl text-left transition-all duration-200 ${
  selectedCategory === category.name
  ? 'bg-green-50 border-2 border-green-200 shadow-md'
  : 'hover:bg-gray-50 border-2 border-transparent'
  }`}
  >
- <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
+ <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
  selectedCategory === category.name ? 'bg-green-100' : 'bg-gray-100'
  }`}>
  {category.icon}
  </div>
- <div className="flex-1">
- <span className={`font-medium text-sm ${
+ <div className="flex-1 min-w-0">
+ <span className={`font-medium text-xs sm:text-sm ${
  selectedCategory === category.name ? 'text-green-800' : 'text-gray-700'
  }`}>
  {category.name}
  </span>
  {selectedCategory === category.name && (
  <div className="flex items-center mt-1">
- <FiArrowRight className="w-4 h-4 text-green-600" />
+ <FiArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
  <span className="text-xs text-green-600 ml-1">Sélectionné</span>
  </div>
  )}
@@ -160,14 +175,17 @@ function ProductsPageContent() {
 
  {/* Sort */}
  <div>
- <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
- <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+ <h3 className="font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center text-sm sm:text-base">
+ <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 sm:mr-3"></span>
  Trier par
  </h3>
  <select
  value={sortBy}
- onChange={(e) => setSortBy(e.target.value)}
- className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
+ onChange={(e) => {
+ setSortBy(e.target.value)
+ setShowFilters(false)
+ }}
+ className="w-full border-2 border-gray-200 rounded-xl px-3 sm:px-4 py-2 sm:py-3 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors text-sm sm:text-base"
  >
  <option value="newest">Plus récents</option>
  <option value="price-low">Prix croissant</option>
@@ -177,14 +195,15 @@ function ProductsPageContent() {
 
  {/* Clear Filters */}
  {(selectedCategory || searchQuery) && (
- <div className="mt-6 pt-6 border-t border-gray-200">
+ <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200">
  <button
  onClick={() => {
  setSelectedCategory('')
  setSearchQuery('')
+ setShowFilters(false)
  router.push('/produits')
  }}
- className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-4 rounded-xl transition-colors"
+ className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 sm:py-3 px-3 sm:px-4 rounded-xl transition-colors text-sm sm:text-base"
  >
  Réinitialiser les filtres
  </button>
@@ -196,19 +215,19 @@ function ProductsPageContent() {
  {/* Products Grid */}
  <div className="flex-1">
  {/* Results Header */}
- <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
- <div className="flex items-center justify-between">
+ <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-8">
+ <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
  <div>
- <h2 className="text-2xl font-bold text-gray-900">
+ <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">
  {selectedCategory ? `Catégorie: ${selectedCategory}` : 'Tous les produits'}
  </h2>
- <p className="text-gray-600 mt-1">
+ <p className="text-sm sm:text-base text-gray-600 mt-1">
  {products.length} produit{products.length !== 1 ? 's' : ''} trouvé{products.length !== 1 ? 's' : ''}
  </p>
  </div>
  <div className="flex items-center space-x-2">
- <span className="text-sm text-gray-500">Tri:</span>
- <span className="text-sm font-medium text-gray-900">
+ <span className="text-xs sm:text-sm text-gray-500">Tri:</span>
+ <span className="text-xs sm:text-sm font-medium text-gray-900">
  {sortBy === 'newest' ? 'Plus récents' : 
  sortBy === 'price-low' ? 'Prix croissant' : 'Prix décroissant'}
  </span>
@@ -218,12 +237,12 @@ function ProductsPageContent() {
 
  {/* Products */}
  {loading ? (
- <div className="text-center py-16">
- <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-green-600 mx-auto"></div>
- <p className="mt-6 text-gray-600 text-lg">Chargement des produits...</p>
+ <div className="text-center py-12 sm:py-16">
+ <div className="animate-spin rounded-full h-12 w-12 sm:h-16 sm:w-16 border-b-4 border-green-600 mx-auto"></div>
+ <p className="mt-4 sm:mt-6 text-gray-600 text-sm sm:text-base lg:text-lg">Chargement des produits...</p>
  </div>
  ) : products.length > 0 ? (
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
  {products.map((product) => (
  <Link
  key={product._id}

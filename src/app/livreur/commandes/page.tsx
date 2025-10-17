@@ -311,20 +311,20 @@ export default function LivreurCommandesPage() {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
- <div>
- <h1 className="text-2xl font-bold text-gray-900">Mes Commandes</h1>
- <p className="text-gray-600">Gérez vos livraisons et découvrez de nouvelles commandes</p>
+ <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
+ <div className="flex-1">
+ <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Mes Commandes</h1>
+ <p className="text-sm sm:text-base text-gray-600 mt-1">Gérez vos livraisons et découvrez de nouvelles commandes</p>
  {hasActiveDelivery && (
- <div className="mt-2 flex items-center justify-between">
+ <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
  <div className="flex items-center space-x-2 text-green-600">
  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
- <span className="text-sm font-medium">Livraison en cours...</span>
+ <span className="text-xs sm:text-sm font-medium">Livraison en cours...</span>
  </div>
  {!isModalOpen && (
  <button
  onClick={reopenModal}
- className="text-sm bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1 rounded-lg transition-colors"
+ className="text-xs sm:text-sm bg-green-100 hover:bg-green-200 text-green-700 px-3 py-1.5 rounded-lg transition-colors w-full sm:w-auto text-center"
  >
  Ouvrir le suivi
  </button>
@@ -333,7 +333,7 @@ export default function LivreurCommandesPage() {
  )}
  </div>
  
- <div className="mt-4 sm:mt-0">
+ <div className="mt-3 sm:mt-0">
  <button
  onClick={() => {
  if (activeTab === 'available') {
@@ -343,7 +343,7 @@ export default function LivreurCommandesPage() {
  fetchMyDeliveries()
  }
  }}
- className="flex items-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+ className="w-full sm:w-auto flex items-center justify-center space-x-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm sm:text-base"
  >
  <FiRefreshCw className="w-4 h-4" />
  <span>Actualiser</span>
@@ -352,11 +352,11 @@ export default function LivreurCommandesPage() {
  </div>
 
  {/* Tabs */}
- <div className="border-b border-gray-200">
- <nav className="-mb-px flex space-x-8">
+ <div className="border-b border-gray-200 overflow-x-auto">
+ <nav className="-mb-px flex space-x-4 sm:space-x-8">
  <button
  onClick={() => setActiveTab('available')}
- className={`py-2 px-1 border-b-2 font-medium text-sm ${
+ className={`py-2 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap ${
  activeTab === 'available'
  ? 'border-green-500 text-green-600'
  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -366,7 +366,7 @@ export default function LivreurCommandesPage() {
  </button>
  <button
  onClick={() => setActiveTab('my-deliveries')}
- className={`py-2 px-1 border-b-2 font-medium text-sm ${
+ className={`py-2 px-2 sm:px-1 border-b-2 font-medium text-xs sm:text-sm whitespace-nowrap ${
  activeTab === 'my-deliveries'
  ? 'border-green-500 text-green-600'
  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
@@ -384,17 +384,17 @@ export default function LivreurCommandesPage() {
  className="w-full"
  />
  ) : (
- <div className="space-y-4">
+ <div className="space-y-3 sm:space-y-4">
  {myDeliveries.length === 0 ? (
- <div className="bg-gray-50 rounded-lg p-8 text-center">
- <FiPackage className="w-16 h-16 text-gray-400 mx-auto mb-4" />
- <h3 className="text-lg font-semibold text-gray-900 mb-2">Aucune livraison en cours</h3>
- <p className="text-gray-600 mb-4">
+ <div className="bg-gray-50 rounded-lg p-6 sm:p-8 text-center">
+ <FiPackage className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-3 sm:mb-4" />
+ <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2">Aucune livraison en cours</h3>
+ <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
  Toutes les commandes sont livrées ou aucune commande n'est en attente.
  </p>
  <button
  onClick={() => setActiveTab('available')}
- className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors"
+ className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors text-sm sm:text-base"
  >
  Voir les commandes disponibles
  </button>
@@ -444,32 +444,32 @@ export default function LivreurCommandesPage() {
  </div>
  
  {/* Content */}
- <div className="p-4">
- <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+ <div className="p-3 sm:p-4">
+ <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-3 sm:mb-4">
  {/* Informations client */}
- <div className="space-y-3">
+ <div className="space-y-2 sm:space-y-3">
  <div className="flex items-center space-x-2">
- <FiUser className="w-4 h-4 text-gray-500" />
- <span className="text-sm font-medium text-gray-900">{delivery.customer.name}</span>
+ <FiUser className="w-4 h-4 text-gray-500 flex-shrink-0" />
+ <span className="text-xs sm:text-sm font-medium text-gray-900">{delivery.customer.name}</span>
  </div>
  
- <div className="flex items-center space-x-2">
- <FiMapPin className="w-4 h-4 text-gray-500" />
- <span className="text-sm text-gray-600">
+ <div className="flex items-start space-x-2">
+ <FiMapPin className="w-4 h-4 text-gray-500 flex-shrink-0 mt-0.5" />
+ <span className="text-xs sm:text-sm text-gray-600">
  {delivery.address.street}, {delivery.address.city}
  </span>
  </div>
  
  <div className="flex items-center space-x-2">
- <FiDollarSign className="w-4 h-4 text-gray-500" />
- <span className="text-sm font-medium text-gray-900">
+ <FiDollarSign className="w-4 h-4 text-gray-500 flex-shrink-0" />
+ <span className="text-xs sm:text-sm font-medium text-gray-900">
  {delivery.totals.total.toFixed(2)} €
  </span>
  </div>
  </div>
  
  {/* Informations de livraison */}
- <div className="space-y-3">
+ <div className="space-y-2 sm:space-y-3">
  <div className="flex items-center space-x-2">
  <FiClock className="w-4 h-4 text-blue-500" />
  <span className="text-sm text-gray-600">

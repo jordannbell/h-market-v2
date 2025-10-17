@@ -65,6 +65,77 @@ button, a {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  
+  /* Améliorer la lisibilité sur mobile */
+  body {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Zone de toucher minimale sur mobile (44x44px recommandé) */
+  button,
+  a,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Amélioration tactile pour tous les écrans */
+* {
+  -webkit-tap-highlight-color: rgba(22, 163, 74, 0.1);
+}
+
+/* Amélioration des inputs sur mobile */
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Empêche le zoom auto sur iOS */
+  }
+}
+
+/* Scroll doux sur mobile */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Safe area pour les iPhones avec notch */
+@supports (padding: max(0px)) {
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Amélioration des modales sur mobile */
+@media (max-width: 640px) {
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Empêcher le défilement horizontal */
+body {
+  overflow-x: hidden;
+}
+
+/* Amélioration des animations sur mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Stripe Elements custom styling */
