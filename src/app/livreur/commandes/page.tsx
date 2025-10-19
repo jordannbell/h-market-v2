@@ -181,25 +181,20 @@ export default function LivreurCommandesPage() {
      return
    }
    
-   setUpdatingStatus(orderId)
+  setUpdatingStatus(orderId)
 
-
-   
-  
-
-   try {
- 4   const response = await fetch(`/api/orders/${orderId}/tracking`, {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-         'Authorization': `Bearer ${token}`
-       },
-       body: JSON.stringify({
-         status: newStatus,
-         notes: `Statut mis à jour vers: ${newStatus}`
-       })
-4
+  try {
+    const response = await fetch(`/api/orders/${orderId}/tracking`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        status: newStatus,
+        notes: `Statut mis à jour vers: ${newStatus}`
       })
+    })
 
      const data = await response.json()
 
