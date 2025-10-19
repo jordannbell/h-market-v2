@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
  title: "H-Market - Saveurs d'Afrique",
  description: "Découvrez les meilleurs produits africains authentiques livrés chez vous en Île-de-France",
+ icons: {
+ icon: '/icon.svg',
+ apple: '/icon.svg',
+ },
 };
 
 export default function RootLayout({
