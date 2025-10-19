@@ -85,11 +85,17 @@ export default function LivreurCommandesPage() {
 
  if (response.ok) {
  const data = await response.json()
- // Utiliser directement les livraisons assignées (déjà filtrées par l'API)
- setMyDeliveries(data.deliveries || [])
+ 
+ // FILTRER pour exclure les commandes déjà livrées
+ const notDeliveredYet = (data.deliveries || []).filter((delivery: any) => 
+ delivery.deliveryStatus !== 'delivered'
+ )
+ 
+ // Afficher uniquement les livraisons non livrées
+ setMyDeliveries(notDeliveredYet)
  
  // Vérifier s'il y a une livraison active (assignée au livreur)
- const activeDelivery = (data.deliveries || []).find((order: any) => 
+ const activeDelivery = notDeliveredYet.find((order: any) => 
  order.delivery?.status && ['assigned', 'picked_up', 'in_transit'].includes(order.delivery.status)
  )
  
