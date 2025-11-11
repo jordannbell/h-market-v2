@@ -6,8 +6,8 @@ const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testMatch: [
-    '<rootDir>/githubworkflow/frontend/**/*.test.ts?(x)',
-    '<rootDir>/githubworkflow/frontend/**/*.spec.ts?(x)',
+    '<rootDir>/tests/frontend/**/*.test.ts?(x)',
+    '<rootDir>/tests/frontend/**/*.spec.ts?(x)',
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -17,7 +17,7 @@ const customJestConfig = {
     '!src/**/*.d.ts',
     '!src/app/**',
     '!src/types/**',
-    'githubworkflow/frontend/**/*.{ts,tsx}',
+    'tests/frontend/**/*.{ts,tsx}',
   ],
   coverageDirectory: 'coverage/frontend',
 }
