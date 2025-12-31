@@ -2,7 +2,6 @@
 const nextConfig = {
   // Configuration pour les images (next/image + Unsplash)
   images: {
-    domains: ['localhost', 'images.unsplash.com', 'unsplash.com'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -20,29 +19,23 @@ const nextConfig = {
       },
     ],
   },
-  
+
   // Activer le mode strict de React
   reactStrictMode: true,
-  
-  // Configuration ESLint - Ignorer pendant le build (les warnings sont toujours visibles en dev)
-  eslint: {
-    ignoreDuringBuilds: true,
-    dirs: ['src'],
-  },
-  
+
   // Configuration TypeScript - Ignorer pendant le build (les erreurs sont visibles en dev)
   typescript: {
     ignoreBuildErrors: true,
     tsconfigPath: './tsconfig.json',
   },
-  
+
   // Variables d'environnement publiques
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000',
     NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME || 'H-Market',
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   },
-  
+
   // Configuration pour la compilation
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
